@@ -2,24 +2,15 @@ const Cash_Register = (() => {
     let num1 = null;
     let num2 = null;
     let operation = null;
-    let hasDecimal = false;
     let display = document.getElementById('display');
     const buttons = document.getElementsByTagName('button');
     
     for (let i = 0; i < buttons.length; i++) {
         let currButton = buttons[i];
         let buttonValue = currButton.innerHTML;
-        if (Number.parseInt(buttonValue) || buttonValue == 0) {
+        if (Number.parseInt(buttonValue) || buttonValue == 0 || buttonValue === '.') {
             currButton.addEventListener('click', () => {
                 updateDisplay(buttonValue);
-            })
-        } else if (buttonValue === '.') {
-            currButton.addEventListener('click', () => {
-                if (!hasDecimal) {
-                    hasDecimal = true;
-                    updateDisplay('.');
-                } else
-                    throw new IllegalFormatExpression('.');
             })
         } else if (buttonValue === 'clear') {
             currButton.addEventListener('click', () => {
@@ -60,7 +51,6 @@ const Cash_Register = (() => {
         num1: num1,
         num2: num2,
         operation: operation,
-        hasDecimal: hasDecimal,
         display: display
     }
 })();
@@ -72,8 +62,12 @@ function updateDisplay(num) {
         else 
             Cash_Register.display.innerHTML = num;
     }
-    else
+    else {
+        if (num === '.')
+            if (Cash_Register.display.innerHTML.includes('.'))
+                throw new IllegalFormatExpression("Can't have two '.' in a number")
         Cash_Register.display.innerHTML += num;
+    }
 }
 
 function doClear(reset) {
@@ -83,7 +77,6 @@ function doClear(reset) {
         Cash_Register.operation = null;
     }
     Cash_Register.display.innerHTML = '0';
-    Cash_Register.hasDecimal = false;
 }
 
 function handleOperation(operator) {
@@ -99,7 +92,6 @@ function doEquals() {
     let operand2 = Number.parseFloat(Cash_Register.num2);
     if (Cash_Register.operation === '+') {
         Cash_Register.display.innerHTML = Calculator.add(operand1, operand2);
-        console.log(Cash_Register.display);
     } else if (Cash_Register.operation === '-') {
         Cash_Register.display.innerHTML = Calculator.subtract(operand1, operand2);
     } else if (Cash_Register.operation === '*') {
@@ -114,11 +106,25 @@ function doEquals() {
     Cash_Register.num2 = null;
 }
 
-function IllegalFormatExpression(arg) {
-    if (arg === '.')
-        console.log("Can't have two '.' in a number!");
+function IllegalFormatExpression(message) {
+    console.log(message);
 }
 
 function IllegalArgumentException(message) {
     console.log(message);
+}
+
+document.addEventListener('keypress', function(event) {
+    let char = String.fromCharCode(event.keyCode);
+    if (Number.parseInt(char) || char === '0' || char === '.')
+        updateDisplay(char);
+    else if (char === '+' || char === '-' || char === '*' || char === '/')
+        handleOperation(char);
+    else if (char === '=' || event.keyCode == '13')
+        doEquals();
+})
+
+document.onkeydown = function(event) {
+    if (event.keyCode == '8')
+        doClear(true);
 }

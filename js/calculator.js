@@ -24,6 +24,7 @@ const Calculator = (() => {
     }
 
     function deposit(amount) {
+        
             total += amount;
     }
 

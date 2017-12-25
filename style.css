@@ -1,37 +1,8 @@
-button {
-    border-radius: 12px;
-    border: none;
-    display: block;
-    cursor: pointer;
-    box-shadow: 0 3px rgb(199, 199, 199);
-    background-color: #553dda;
-    margin: 10px;
-    width: 50px;
-}
-
-button:hover{
-    background-color: #4CAF50;
-}
-
-button:active{
-    background-color: #4CAF50;
-    box-shadow: 0 3px rgb(199, 199, 199);
-    transform: translateY(4px);
-}
-
-button:focus {
-    outline: 0;
-}
-
-.large {
-    width: 65px;
-}
-
 .container {
     position: fixed;
-    width: 292px;
-    height: 200px;
-    background: #856c639c;
+    width: 320px;
+    height: 270px;
+    background: #2726268e;
     border-radius: 12px;
     user-select: none;
 }
@@ -40,11 +11,11 @@ button:focus {
     position: fixed;
     background-color: #f1efe9;
     border-radius: 12px;
-    border-width: 1px;
     height: 40px;
-    width: 275px;
+    width: 300px;
     margin-left: 8.5px;
-    margin-top: 5px;
+    margin-top: 7px;
+    font-size: 20px;
 }
 
 #display {
@@ -55,6 +26,65 @@ button:focus {
 #dollar {
     float: left;
     margin: 5px;
+}
+
+button {
+    border-radius: 12px;
+    border: none;
+    display: block;
+    cursor: pointer;
+    box-shadow: 0 3px rgb(223, 225, 225);
+    background-color: #0f0e11;
+    margin: 10px;
+    width: 50px;
+    color: #f7f2f2;
+    font-size: 20px;
+}
+
+
+button:hover{
+    background-color: #4CAF50;
+}
+
+button:active{
+    background-color: #4CAF50;
+    box-shadow: 0 3px rgb(142, 142, 142);
+    transform: translateY(4px);
+}
+
+button:focus {
+    outline: 0;
+}
+
+.operand {
+    background-color: #bb1c1c
+}
+
+#equal {
+    background-color: #ebd61f;
+    width: 203px;
+    height: 62px;
+    margin-left: -145px;
+}
+
+#equal:hover {
+    background-color: #4CAF50;
+}
+
+#clear {
+    width: 90px;
+    height: 30px;
+    margin-top: -1px;
+    background-color: #1836e4
+}
+
+#clear:hover {
+    background-color: #4CAF50;
+}
+
+.large {
+    width: 90px;
+    background-color: #5a17b3
 }
 
 .col1 {
