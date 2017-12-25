@@ -1,0 +1,93 @@
+button {
+    border-radius: 12px;
+    border: none;
+    display: block;
+    cursor: pointer;
+    box-shadow: 0 3px rgb(199, 199, 199);
+    background-color: #553dda;
+    margin: 10px;
+    width: 50px;
+}
+
+button:hover{
+    background-color: #4CAF50;
+}
+
+button:active{
+    background-color: #4CAF50;
+    box-shadow: 0 3px rgb(199, 199, 199);
+    transform: translateY(4px);
+}
+
+button:focus {
+    outline: 0;
+}
+
+.large {
+    width: 65px;
+}
+
+.container {
+    position: fixed;
+    width: 292px;
+    height: 200px;
+    background: #856c639c;
+    border-radius: 12px;
+    user-select: none;
+}
+
+.screen {
+    position: fixed;
+    background-color: #f1efe9;
+    border-radius: 12px;
+    border-width: 1px;
+    height: 40px;
+    width: 275px;
+    margin-left: 8.5px;
+    margin-top: 5px;
+}
+
+#display {
+    float: right;
+    margin: 5px;
+}
+
+#dollar {
+    float: left;
+    margin: 5px;
+}
+
+.col1 {
+    width: 70px;
+    height: 35px;
+    margin-top: 55px;
+    margin-left: 0px;
+}
+
+.col2 {
+    width: 70px;
+    height: 35px;
+    margin-left: 52px;
+    margin-top: -45px;
+}
+
+.col3 {
+    width: 70px;
+    height: 35px;
+    margin-left: 104px;
+    margin-top: -45px;
+}
+
+.col4 {
+    width: 70px;
+    height: 35px;
+    margin-left: 156px;
+    margin-top: -45px;
+}
+
+.col5 {
+    width: 70px;
+    height: 35px;
+    margin-left: 208px;
+    margin-top: -45px;
+}
