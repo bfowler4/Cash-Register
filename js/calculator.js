@@ -16,7 +16,7 @@ const Calculator = (() => {
     function divide(num1, num2) {
         if (num2 !== 0)
             return num1 / num2;
-        throw IllegalArgumentException(`Can't divide by zero`);
+        throw `Can't divide by zero`;
     }
     
     function getBalance() {
@@ -24,11 +24,18 @@ const Calculator = (() => {
     }
 
     function deposit(amount) {
-        
+        if (amount < 0)
+            throw `Can't deposit a negative amount`
+        else     
             total += amount;
     }
 
     function withdraw(amount) {
+        if (amount < 0)
+            throw `Can't withdraw a negative amount`;
+        else if (amount > total)
+            throw `Amount is greater than current balance. Current balance: $${total.toFixed(2)}`;
+        else 
             total -= amount;
     }
 
